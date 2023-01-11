@@ -98,5 +98,5 @@ SELECT host_name AS 'Host Name', count(*) AS 'Number of units'  FROM final_airbn
 -- Find the the percent above or below each listing is compared to the average price for all listings.
 -- HINT: No hints! It's a bonus for a reason :)
 
-SELECT id, price, AVG(price) - price / AVG(price)*100 AS 'Percent differance from average price' FROM final_airbnb group by id;
+SELECT id, price, (((SELECT AVG(price) FROM final_airbnb) - price)/ (((SELECT AVG(price) FROM final_airbnb) + price)/2)*100) AS 'Percent Difference of Average Price'  FROM final_airbnb;
 SELECT AVG(PRICE) FROM final_airbnb;
