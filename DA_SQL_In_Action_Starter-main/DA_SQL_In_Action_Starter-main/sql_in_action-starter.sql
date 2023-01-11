@@ -6,6 +6,7 @@
 
 
 
+
 -- <<<<<<<<<<<<<<<<<<<<<< PROBLEM 1 >>>>>>>>>>>>>>>>>>>>>>>
 -- Find out how many rows are in the table "final_airbnb"
 -- EXPECTED OUTPUT: 146
@@ -43,7 +44,7 @@ SELECT * FROM final_airbnb ORDER BY price ASC LIMIT 1;
 -- HINT: Aggregates are more than just big rocks...
 
 -- EXPECTED OUTPUT: 165.3904
- SELECT (avg(availability_365)) FROM final_airbnb;
+ SELECT avg(availability_365) FROM final_airbnb;
 
 -- <<<<<<<<<<<<<<<<<<<<<< PROBLEM 6 >>>>>>>>>>>>>>>>>>>>>>>
 -- Find all listings that do NOT have a review
@@ -99,4 +100,3 @@ SELECT host_name AS 'Host Name', count(*) AS 'Number of units'  FROM final_airbn
 -- HINT: No hints! It's a bonus for a reason :)
 
 SELECT id, price, (((SELECT AVG(price) FROM final_airbnb) - price)/ (((SELECT AVG(price) FROM final_airbnb) + price)/2)*100) AS 'Percent Difference of Average Price'  FROM final_airbnb;
-SELECT AVG(PRICE) FROM final_airbnb;
